@@ -8,7 +8,8 @@
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Font Awesome -->
-
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 
 
@@ -165,7 +166,7 @@
       .container-wrapper {
             display: flex; /* Enable flexbox layout */
             justify-content: center; /* Center items */
-            margin-top: 40px; /* Space above */
+            margin-top: 70px; /* Space above */
             color: white;
         }
 
@@ -646,10 +647,10 @@ footer:hover:before {
 </head>
 <body>
     <img src="logo.jpg" class="logo">
-    <nav>
+    <nav data-aos="flip-right" data-aos-duration="3000">
      
         <ul>
-            <li><a href="#" class="icon-dashboard"><i class="fas fa-tachometer-alt"></i> Home</a></li>
+            <li><a href="#" class="icon-dashboard"><i class="fas fa-tachometer-alt" ></i> Home</a></li>
             <li><a href="#a1" class="icon-about"><i class="fas fa-info-circle"></i> About Us</a></li>
             <li><a href="#c1" class="icon-contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
             <li><a href="#l1" class="icon-contact"><i class="fas fa-book-open"></i>
@@ -661,18 +662,18 @@ footer:hover:before {
         </button>
     </nav>
 
-    <div class="container-wrapper">
+    <div class="container-wrapper" data-aos="flip-left" data-aos-duration="3000">
         <a href="app.html" class="container-box">
             <h5>Admin</h5>
-            <p>Manage your users and settings.</p>
+            <p>Admin Site</p>
         </a>
         <a href="manufacturing.html" class="container-box">
             <h5>Manufacturing</h5>
-            <p>Oversee your production process.</p>
+            <p>Manufacturing Site</p>
         </a>
         <a href="userfeedback.html" class="container-box">
             <h5>User Feedback</h5>
-            <p>View and respond to user feedback.</p>
+            <p>userfeedback Site</p>
         </a>
     </div></br>
     
@@ -682,7 +683,7 @@ footer:hover:before {
             <h3>Automatic production planning and scheduling, also known as APS, refers to the use of software and algorithms to optimize production processes, including determining which products to produce, when to produce them, and in what quantities. This approach aims to reduce production costs, improve quality, and increase efficiency.</h3>
         </div>
 
-        <div class="new-container">
+        <div class="new-container"   data-aos="flip-left" data-aos-duration="3000" >
             <img src="employee.jpg" alt="Description of the image" class="new-image">
         </div>
     </div>
@@ -755,7 +756,7 @@ footer:hover:before {
     </div>
 
     <div class="footer-container" id="c1">
-        <div class="circle-container">
+        <div class="circle-container" data-aos="slide-right" data-aos-duration="3000">
             <div class="circular-div">
                 
                 <div class="circle-info"><img src="person1.jpg"  "></div>
@@ -771,7 +772,7 @@ footer:hover:before {
         </div>
     <div class="contact-info-vericle">
         <div class="contact-info">
-            <div class="contact-item">
+            <div class="contact-item" >
                 <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;
                 <span><a href="https://mail.google.com/" target="_blank" class="no-underline">Email: nks990217@gmail.com</a></span>
             </div>
@@ -814,7 +815,7 @@ footer:hover:before {
         </div>
     </div>
     
-        <div class="contact-container">
+        <div class="contact-container" data-aos="slide-left" data-aos-duration="3000">
             <h2>Contact Us</h2>
             <form id="contactForm" name="submit-to-google-sheet">
                 <div class="input-group">
@@ -837,7 +838,9 @@ footer:hover:before {
 
 
         <footer>
-            <div class="footer-content">
+            <div class="footer-content" data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000">
                 <div class="newsletter">
                     <h2 class="animate">Don't Miss Out</h2>
                     <p class="animate">Sign up for the latest beauty news, product samples, and coupons</p>
@@ -1137,5 +1140,14 @@ footer:hover:before {
             .catch(error => console.error('Error!', error));
         });
     </script>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script>
+    AOS.init({
+     duration:4000
+  });
+</script>
+
 </body>
 </html>
