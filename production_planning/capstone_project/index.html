@@ -27,10 +27,22 @@
 }
         nav {
             background-color: #000000;
+            top:0;
+        
             padding: 1.5em;
             text-align: center;
-            position: relative;
+            position: fixed;
         }
+        .nav-div {
+    position: fixed; /* Fixes the nav-div to the top of the viewport */
+    top: 0;         /* Aligns it to the top */
+    left: 12%;  
+    margin-right:0%;      /* Aligns it to the left */
+    width: 100%;    /* Makes it span the full width of the viewport */
+    background-color: white; /* Background color for visibility */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for effect */
+    z-index: 1000; /* Ensures it stays above other content */
+}
 
         nav ul {
             list-style: none;
@@ -68,9 +80,10 @@
             width: 100%; /* Underline expands */
             background-color: #ffcc00; /* Color on hover */
         }
-
+  
         .btn-logout {
             background-color: #a60414;
+            margin-right: 20px;
             color: white;
             border: none;
             border-radius: 5px;
@@ -161,8 +174,11 @@
         .container-wrapper {
             display: flex;
             justify-content: center;
-            margin-top: 100px; /* Space below the navigation bar */
+            margin-top: 200px; /* Space below the navigation bar */
             color: white;
+        }
+        .container-wrapper_main{
+            margin-top: 120px;
         }
 
       /* New styles for containers */
@@ -483,6 +499,9 @@ footer {
     padding: 10px; /* Padding for inputs */
     margin-top: 5px; /* Space between label and input */
 }
+#newsletter_p{
+    color: yellow;
+}
 
 .password-container {
     position: relative; /* Position relative for the icon */
@@ -649,62 +668,62 @@ footer:hover:before {
 /*Learn html*/
 
 .container {
-    display: flex;
-}
+            display: flex;
+        }
 
-.sidebar {
-    width: 35%;
-    background-color: #282727;
-    padding: 20px;
-    margin-top: 6px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
+        .sidebar {
+            width: 25%;
+            background-color: #342929;
+            padding: 40px;
+            margin-top: 6px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
 
-.sidebar h2 {
-    margin: 0 0 10px;
-    color: white;
-    font-size: xx-large;
-}
+        .sidebar h2 {
+            margin: 0 0 10px;
+            color: rgb(171, 239, 11);
+            font-size:xx-large;
+        }
 
-.sidebar h3 {
-    cursor: pointer;
-    color: blue;
-    margin: 10px 0;
-    font-size: x-large;
-   
-    
-}
-.h1{
-    color: #bff609;
-}
+        .sidebar h3 {
+            cursor: pointer;
+            color: blue;
+            margin: 10px 0;
+            font-size: x-large;
+        }
 
-.content {
-    width: 75%;
-    padding: 20px;
-    color: white;
-}
+        .content {
+            width: 75%;
+            padding: 20px;
+        }
+        .content ,h1{
+            color: yellow;
+        }
+        .content,p{
+            color: white;
+        }
 
-.content-section {
-    margin-bottom: 20px;
-}
+        .content-section {
+            margin-bottom: 20px;
+        }
 
-.hidden {
-    display: none;
-}
-.logo {
-      display: block;
-      margin: 4px 20px;
-      height: 100px;
-      width: 100px;
-      border-radius: 12px;
-    }
+        .hidden {
+            display: none;
+        }
 
-
+        .logo {
+            display: block;
+            margin: 4px 20px;
+            height: 100px;
+            width: 100px;
+            border-radius: 12px;
+        }
     </style>
 </head>
 <body>
     <img src="logo.jpg" class="logo">
-    <nav data-aos="flip-right" data-aos-duration="3000">
+    <div class="nav-div">
+    <nav data-aos="flip-right" data-aos-duration="3000" >
      
         <ul>
             <li><a href="#" class="icon-dashboard"><i class="fas fa-tachometer-alt" ></i> Home</a></li>
@@ -721,7 +740,8 @@ footer:hover:before {
             <i class="fas fa-sign-out-alt"></i> Logout
         </button>
     </nav>
-
+</div>
+<div class="container-wrapper_main">
     <div class="container-wrapper" data-aos="flip-left" data-aos-duration="3000">
         <a href="app.html" class="container-box">
             <h5>Admin</h5>
@@ -735,7 +755,7 @@ footer:hover:before {
             <h5>User Feedback</h5>
             <p>serfeedback Site</p>
         </a>
-    </div></br>
+    </div></div></br>
     
    
     <div class="container-wrapper" id="a1">
@@ -825,8 +845,8 @@ footer:hover:before {
         </aside>
 
         <main class="content">
-            <div id="Overview" class="content-section hidden">
-                <h1 class="h1">Overview</h1>
+            <div id="Overview" class="content-section">
+                <h1>Overview</h1>
                 <p>
                     The project focuses on automating production planning and scheduling tasks for industries.
                     It integrates real-time data collection, resource optimization, and task prioritization to
@@ -838,11 +858,10 @@ footer:hover:before {
                     <li>Supports integration with enterprise systems for seamless operation.</li>
                 </ul>
             </div>
+
             <div id="Objectives" class="content-section hidden">
-                <h1 class="h1">Objectives</h1>
-                <p>
-                    This project aims to address common bottlenecks in production management by focusing on:
-                </p>
+                <h1>Objectives</h1>
+                <p>This project aims to address common bottlenecks in production management by focusing on:</p>
                 <ul>
                     <li>Optimizing the usage of resources to minimize waste.</li>
                     <li>Reducing production downtime through proactive scheduling.</li>
@@ -850,8 +869,9 @@ footer:hover:before {
                     <li>Enhancing overall productivity and customer satisfaction.</li>
                 </ul>
             </div>
+
             <div id="Features and Benefits" class="content-section hidden">
-                <h1 class="h1">Features and Benefits</h1>
+                <h1>Features and Benefits</h1>
                 <p>Key features of this project include:</p>
                 <ul>
                     <li>Automated production scheduling using advanced algorithms.</li>
@@ -866,8 +886,9 @@ footer:hover:before {
                     <li>Better resource management and reduced wastage.</li>
                 </ul>
             </div>
+
             <div id="Technologies Used" class="content-section hidden">
-                <h1 class="h1">Technologies Used</h1>
+                <h1>Technologies Used</h1>
                 <ul>
                     <li><strong>Backend:</strong> Node.js with Express.js for API development.</li>
                     <li><strong>Frontend:</strong> React.js for building user interfaces.</li>
@@ -875,11 +896,10 @@ footer:hover:before {
                     <li><strong>Optimization:</strong> Python for resource and task optimization algorithms.</li>
                 </ul>
             </div>
+
             <div id="Implementation Details" class="content-section hidden">
-                <h1 class="h1">Implementation Details</h1>
-                <p>
-                    The project is implemented in the following phases:
-                </p>
+                <h1>Implementation Details</h1>
+                <p>The project is implemented in the following phases:</p>
                 <ul>
                     <li>Requirement gathering and analysis.</li>
                     <li>System design and architecture planning.</li>
@@ -889,8 +909,9 @@ footer:hover:before {
                     <li>Testing and deployment in a production environment.</li>
                 </ul>
             </div>
+
             <div id="Conclusion" class="content-section hidden">
-                <h1 class="h1">Conclusion</h1>
+                <h1>Conclusion</h1>
                 <p>
                     The project successfully demonstrates how automation and technology can revolutionize production
                     planning and scheduling. By integrating advanced optimization algorithms and real-time data, the
@@ -901,17 +922,22 @@ footer:hover:before {
     </div>
 
     <script>
+        // Function to toggle visibility of content sections
         function toggleContent(id) {
-    const sections = document.querySelectorAll('.content-section');
-    sections.forEach(section => {
-        if (section.id === id) {
-            section.classList.toggle('hidden');
-        } else {
-            section.classList.add('hidden');
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                if (section.id === id) {
+                    section.classList.remove('hidden');
+                } else {
+                    section.classList.add('hidden');
+                }
+            });
         }
-    });
-}
-
+        
+        // Display Overview section by default
+        document.addEventListener('DOMContentLoaded', () => {
+            toggleContent('Overview');
+        });
     </script>
 
 
@@ -1003,7 +1029,7 @@ footer:hover:before {
             data-aos-duration="2000">
                 <div class="newsletter">
                     <h2 class="animate">Don't Miss Out</h2>
-                    <p class="animate">Sign up for the latest beauty news, product samples, and coupons</p>
+                    <p class="animate" id="newsletter_p">Join us to receive exclusive updates, exciting product samples, and special coupon offers just for you! </p>
                     
                     <form>
                         <div class="form-group">
@@ -1047,10 +1073,10 @@ footer:hover:before {
                 <div>
                     <h3>MORE TO EXPLORE</h3>
                     <ul>
-                        <li><a href="#">Beauty Magazine</a></li>
-                        <li><a href="#">Tools and Consultations</a></li>
-                        <li><a href="#">Offers</a></li>
-                        <li><a href="#">#LorealParis</a></li>
+                        <li><a href="#">Available</a></li>
+                        <li><a href="#">Scheduled</a></li>
+                        <li><a href="#">Delivery</a></li>
+                        <li><a href="#">Outlined</a></li>
                     </ul>
                 </div>
             </div>
@@ -1079,8 +1105,8 @@ footer:hover:before {
             </div>
     
             <div class="bottom-text">
-                <p>SITE MAP | PRIVACY | TERMS | USER CONTENT PERMISSION TERMS | MAKEUP.COM | SKINCADE.COM</p>
-                <p>© 2019 L'Oréal Paris | BACK TO TOP</p>
+              
+                <p> Copywrite © 2024 Naveen By Capstone project 102 group | All Rights Reserved </p>
             </div>
         </footer>
 
