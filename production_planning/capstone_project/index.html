@@ -147,6 +147,9 @@
             text-decoration: none; /* Ensures no underline on links */
             color: white; /* Inherit color */
         }
+        .contact-container, p{
+            font-size:x-large;
+        }
 
         .container-box:hover {
             transform: scale(1.05);
@@ -643,6 +646,60 @@ footer:hover:before {
     transform: scale(0.95); /* Scale down when pressed */
 }
 
+/*Learn html*/
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 35%;
+    background-color: #282727;
+    padding: 20px;
+    margin-top: 6px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+    margin: 0 0 10px;
+    color: white;
+    font-size: xx-large;
+}
+
+.sidebar h3 {
+    cursor: pointer;
+    color: blue;
+    margin: 10px 0;
+    font-size: x-large;
+   
+    
+}
+.h1{
+    color: #bff609;
+}
+
+.content {
+    width: 75%;
+    padding: 20px;
+    color: white;
+}
+
+.content-section {
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+.logo {
+      display: block;
+      margin: 4px 20px;
+      height: 100px;
+      width: 100px;
+      border-radius: 12px;
+    }
+
+
     </style>
 </head>
 <body>
@@ -653,9 +710,12 @@ footer:hover:before {
             <li><a href="#" class="icon-dashboard"><i class="fas fa-tachometer-alt" ></i> Home</a></li>
             <li><a href="#a1" class="icon-about"><i class="fas fa-info-circle"></i> About Us</a></li>
             <li><a href="#c1" class="icon-contact"><i class="fas fa-envelope"></i> Contact Us</a></li>
-            <li><a href="#l1" class="icon-contact"><i class="fas fa-book-open"></i>
+            <li><a href="#l1"  target="_blank" class="icon-contact"><i class="fas fa-book-open"></i>
                 Learn More</a></li>
             <li><a href="#" class="icon-login" onclick="toggleLoginForm()"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+            <li><a href="#" class="icon-login" onclick="toggleSignupForm()"><i class="fas fa-sign-in-alt"></i> Signup</a></li>
+      
+        
         </ul>
         <button id="logout-button" class="btn-logout" onclick="logout()">
             <i class="fas fa-sign-out-alt"></i> Logout
@@ -673,7 +733,7 @@ footer:hover:before {
         </a>
         <a href="userfeedback.html" class="container-box">
             <h5>User Feedback</h5>
-            <p>userfeedback Site</p>
+            <p>serfeedback Site</p>
         </a>
     </div></br>
     
@@ -724,13 +784,12 @@ footer:hover:before {
             </div>
             <button type="submit" class="btn btn-primary" action="index.html" >Submit</button>
 
-            <p class="mt-2"><a href="#" onclick="showSignupForm();" class="text-primary">Don't have an account? Sign up here!</a></p>
-        </form>
+  </form>
     </div>
 
-    <div id="signupFormContainer">
+    <div id="signupFormContainer" >
         <h5><i class="fas fa-user-plus"></i> Sign Up</h5>
-        <form id="signupForm" novalidate>
+        <form id="signupForm"  name="submit-to-google-sheet">
             <div class="form-group">
                 <label for="signupEmail">Email address</label>
                 <input type="email" name="Email Address" class="form-control" id="signupEmail" placeholder="Enter email" required>
@@ -751,9 +810,110 @@ footer:hover:before {
                 <div class="invalid-feedback"> Passwords do not match. </div>
             </div>
             <button type="submit" class="btn btn-primary" onclick="return validateSignup()">Sign Up</button>
-            <p class="mt-2"><a href="#" onclick="showLoginForm();" class="text-primary">Already have an account? Login here!</a></p>
-        </form>
+            </form>
     </div>
+
+    <div class="container" id="l1">
+        <aside class="sidebar">
+            <h2>Automatic Production Planning and Scheduling</h2>
+            <h3 onclick="toggleContent('Overview')">Overview</h3>
+            <h3 onclick="toggleContent('Objectives')">Objectives</h3>
+            <h3 onclick="toggleContent('Features and Benefits')">Features and Benefits</h3>
+            <h3 onclick="toggleContent('Technologies Used')">Technologies Used</h3>
+            <h3 onclick="toggleContent('Implementation Details')">Implementation Details</h3>
+            <h3 onclick="toggleContent('Conclusion')">Conclusion</h3>
+        </aside>
+
+        <main class="content">
+            <div id="Overview" class="content-section hidden">
+                <h1 class="h1">Overview</h1>
+                <p>
+                    The project focuses on automating production planning and scheduling tasks for industries.
+                    It integrates real-time data collection, resource optimization, and task prioritization to
+                    enhance operational efficiency.
+                </p>
+                <ul>
+                    <li>Designed to eliminate manual scheduling efforts.</li>
+                    <li>Addresses challenges like resource conflicts and production delays.</li>
+                    <li>Supports integration with enterprise systems for seamless operation.</li>
+                </ul>
+            </div>
+            <div id="Objectives" class="content-section hidden">
+                <h1 class="h1">Objectives</h1>
+                <p>
+                    This project aims to address common bottlenecks in production management by focusing on:
+                </p>
+                <ul>
+                    <li>Optimizing the usage of resources to minimize waste.</li>
+                    <li>Reducing production downtime through proactive scheduling.</li>
+                    <li>Improving decision-making with data-driven insights.</li>
+                    <li>Enhancing overall productivity and customer satisfaction.</li>
+                </ul>
+            </div>
+            <div id="Features and Benefits" class="content-section hidden">
+                <h1 class="h1">Features and Benefits</h1>
+                <p>Key features of this project include:</p>
+                <ul>
+                    <li>Automated production scheduling using advanced algorithms.</li>
+                    <li>Dynamic resource allocation based on real-time data.</li>
+                    <li>Customizable scheduling rules for industry-specific needs.</li>
+                    <li>Detailed reporting and analytics for informed decision-making.</li>
+                </ul>
+                <p>Benefits:</p>
+                <ul>
+                    <li>Reduced operational costs.</li>
+                    <li>Increased production efficiency.</li>
+                    <li>Better resource management and reduced wastage.</li>
+                </ul>
+            </div>
+            <div id="Technologies Used" class="content-section hidden">
+                <h1 class="h1">Technologies Used</h1>
+                <ul>
+                    <li><strong>Backend:</strong> Node.js with Express.js for API development.</li>
+                    <li><strong>Frontend:</strong> React.js for building user interfaces.</li>
+                    <li><strong>Database:</strong> MongoDB for managing production data.</li>
+                    <li><strong>Optimization:</strong> Python for resource and task optimization algorithms.</li>
+                </ul>
+            </div>
+            <div id="Implementation Details" class="content-section hidden">
+                <h1 class="h1">Implementation Details</h1>
+                <p>
+                    The project is implemented in the following phases:
+                </p>
+                <ul>
+                    <li>Requirement gathering and analysis.</li>
+                    <li>System design and architecture planning.</li>
+                    <li>Backend API development for scheduling and resource management.</li>
+                    <li>Frontend design for user interaction and reporting.</li>
+                    <li>Integration with hardware sensors and ERP systems.</li>
+                    <li>Testing and deployment in a production environment.</li>
+                </ul>
+            </div>
+            <div id="Conclusion" class="content-section hidden">
+                <h1 class="h1">Conclusion</h1>
+                <p>
+                    The project successfully demonstrates how automation and technology can revolutionize production
+                    planning and scheduling. By integrating advanced optimization algorithms and real-time data, the
+                    system ensures higher efficiency, reduced costs, and improved production timelines.
+                </p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function toggleContent(id) {
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(section => {
+        if (section.id === id) {
+            section.classList.toggle('hidden');
+        } else {
+            section.classList.add('hidden');
+        }
+    });
+}
+
+    </script>
+
 
     <div class="footer-container" id="c1">
         <div class="circle-container" data-aos="slide-right" data-aos-duration="3000">
@@ -817,7 +977,7 @@ footer:hover:before {
     
         <div class="contact-container" data-aos="slide-left" data-aos-duration="3000">
             <h2>Contact Us</h2>
-            <form id="contactForm" name="submit-to-google-sheet">
+            <form id="contactForm" >
                 <div class="input-group">
                     <input type="text" id="name" name="Name" placeholder=" " required>
                     <label for="name">Your Name</label>
@@ -954,18 +1114,16 @@ footer:hover:before {
         function toggleLoginForm() {
             const formContainer = document.getElementById('loginFormContainer');
             formContainer.classList.toggle('visible');
-            document.getElementById('signupFormContainer').classList.remove('visible');
+          
         }
-
-        function showSignupForm() {
-            document.getElementById('loginFormContainer').classList.remove('visible');
-            document.getElementById('signupFormContainer').classList.add('visible');
-        }
-
-        function showLoginForm() {
-            document.getElementById('signupFormContainer').classList.remove('visible');
-            document.getElementById('loginFormContainer').classList.add('visible');
-        }
+        function  toggleSignupForm(){
+            const formContainer = document.getElementById('signupFormContainer');
+            formContainer.classList.toggle('visible');
+           
+      
+}
+      
+     
 
         function togglePasswordVisibility(passwordFieldId) {
             const passwordInput = document.getElementById(passwordFieldId);
@@ -1148,6 +1306,31 @@ footer:hover:before {
      duration:4000
   });
 </script>
+<script>
+ const scriptURL1 = 'https://script.google.com/macros/s/AKfycbwC0-bkDGPoXRTuq8_7t5JgR61dOsrfVhrSj7mvgRFCIiaXFeChrs_315NOxEe6Vdl-bg/exec';
+    const form1 = document.forms['submit-to-google-sheet'];
+
+    form1.addEventListener('submit', e => {
+        e.preventDefault();
+
+        const formData = new FormData(form1);
+        console.log(...formData.entries()); // Debugging: log the data being sent
+
+        fetch(scriptURL1, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            console.log('Success!', response);
+            alert('Submission successful!');
+        })
+        .catch(error => {
+            console.error('Error!', error.message);
+            alert('An error occurred: ' + error.message);
+        });
+    });
+</script>
+
 
 </body>
 </html>
