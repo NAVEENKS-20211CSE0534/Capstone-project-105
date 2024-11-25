@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <style>
+        /* Basic styling for the cart items */
+        .cart-page {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .home-link {
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: blue;
+            color: white;
+            border-radius: 5px;
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .cart-item img {
+            height: 80px;
+            width: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .cart-item h3 {
+            font-size: 1rem;
+        }
+        .cart-item button {
+            margin-left: 10px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .buy-now {
+            background-color: green;
+            color: white;
+        }
+        .delete {
+            background-color: red;
+            color: white;
+        }
+        .empty-cart {
+            text-align: center;
+            margin-top: 20px;
+        }
+        @media (max-width: 600px) {
+            .home-link {
+                padding: 8px 12px;
+            }
+            .cart-page {
+                width: 100%;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cart-page">
+        <div class="header">
+            <h2>Your Cart</h2>
+            <a href="product order.html" class="home-link">Home</a>
+        </div>
+        <div id="cart-items"></div>
+    </div>
+
+    <div id="paymentModal" style="display: none;">
+        <div style="padding: 20px; border: 1px solid #ccc; background: #fff; max-width: 400px; margin: 0 auto;">
+            <h2>Confirm Your Order</h2>
+            <img id="modalProductImage" src="" alt="Product Image" style="width: 100%; height: auto; margin-bottom: 10px;">
+            <p id="modalProductName"></p>
+            <p id="modalProductPrice"></p>
+            <button id="confirmPaymentButton" style="padding: 10px 20px; background: #3399cc; color: white; border: none; cursor: pointer;">Pay Now</button>
+            <button onclick="closeModal()" style="padding: 10px 20px; background: #ccc; color: black; border: none; cursor: pointer;">Cancel</button>
+        </div>
+    </div>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Function to update total price display
+        function updateTotalPrice(price, quantity, totalPriceElement) {
+            const total = price * quantity;
+            totalPriceElement.innerText = `Total Price: ₹${total}`;
+        }
+
+        // Function to display cart items
+        function displayCartItems() {
+            cartItemsContainer.innerHTML = ''; // Clear existing cart items
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p class="empty-cart">Your cart is empty.</p>';
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div>
+                        <h3>${item.name}</h3>
+                        <p>${item.description}</p>
+                        <p>Price: ₹${item.price}</p>
+                        <p id="total-price-${index}">Total Price: ₹${item.price}</p>
+                    </div>
+                    <select id="quantity-${index}" style="margin-right: 10px;" onchange="updateTotalPrice(${item.price}, this.value, document.getElementById('total-price-${index}'))">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <button class="buy-now" onclick="buyNow('${item.name}', ${item.price}, '${item.image}', ${index})">Buy Now</button>
+                    <button class="delete" onclick="removeFromCart(${index})">Delete</button>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+        }
+
+        // Function to remove item from cart
+        function removeFromCart(index) {
+            cart.splice(index, 1); // Remove item from cart array
+            localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+            displayCartItems(); // Refresh cart display
+        }
+
+        // Razorpay integration for 'Buy Now'
+        function buyNow(productName, productPrice, productImage, index) {
+            const quantity = document.getElementById(`quantity-${index}`).value;
+            const totalAmount = productPrice * quantity * 100; // Convert to paisa
+
+            const options = {
+                key: "rzp_test_CQ1uNRc0EWxXYl", // Your Razorpay Test Key ID
+                amount: totalAmount, // Total amount based on quantity
+                currency: "INR",
+                name: "Capstone Project",
+                description: productName,
+                image: productImage, // Display product image in Razorpay Checkout for branding purposes
+                notes: {
+                    product_name: productName,
+                    product_image: productImage,
+                    quantity: quantity // Include quantity in notes
+                },
+                handler: function (response) {
+                    alert(`Payment Successful! Payment ID: ${response.razorpay_payment_id}`);
+                    sendPaymentEmail(productName, productPrice, quantity, response.razorpay_payment_id); // Trigger email functionality
+                },
+                prefill: {
+                    name: "Karthik",
+                    email: "kkarthikk50662@gmail.com",
+                    contact: "7338268522",
+                },
+                theme: {
+                    color: "#3399cc",
+                },
+            };
+
+            const razorpay = new Razorpay(options);
+            razorpay.open();
+        }
+
+        // On page load, display cart items
+        displayCartItems();
+    </script>
+</body>
+</html>
