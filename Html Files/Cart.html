@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,12 +15,14 @@
             border-radius: 5px;
             background-color: #f9f9f9;
         }
+
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 15px;
         }
+
         .home-link {
             text-decoration: none;
             padding: 10px 15px;
@@ -27,6 +30,7 @@
             color: white;
             border-radius: 5px;
         }
+
         .cart-item {
             display: flex;
             align-items: center;
@@ -34,45 +38,94 @@
             border-bottom: 1px solid #ddd;
             padding: 10px 0;
         }
+
         .cart-item img {
             height: 80px;
             width: 80px;
             object-fit: cover;
             border-radius: 5px;
         }
+
         .cart-item h3 {
             font-size: 1rem;
         }
+
         .cart-item button {
             margin-left: 10px;
             padding: 8px 15px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            flex: 1; /* Ensure buttons take available space equally */
         }
+
         .buy-now {
             background-color: green;
             color: white;
         }
+
         .delete {
             background-color: red;
             color: white;
         }
+
         .empty-cart {
             text-align: center;
             margin-top: 20px;
         }
+
         @media (max-width: 600px) {
             .home-link {
                 padding: 8px 12px;
+                font-size: 14px; /* Adjust font size for mobile */
             }
+
             .cart-page {
-                width: 100%;
+                width: 95%; /* Use more width on mobile */
                 padding: 10px;
+                margin: 0 auto; /* Center the cart page */
+            }
+
+            .cart-item {
+                flex-direction: column; /* Stack items vertically */
+                align-items: flex-start; /* Align items to start */
+                margin-bottom: 10px; /* Space between items */
+                padding: 5px; /* Less padding for cart item */
+                width: 100%; /* Ensure full width */
+            }
+
+            .cart-item img {
+                height: 60px; /* Smaller image for mobile */
+                width: 60px;
+            }
+
+            .cart-item h3 {
+                font-size: 1.1rem; /* Slightly larger text */
+            }
+
+            .cart-item button {
+                width: 100%; /* Full width buttons on mobile */
+                margin-left: 0; /* Remove margin on the left */
+                margin-top: 5px; /* Space between buttons */
+                flex: none; /* Allow them to stay uniform */
+            }
+
+            /* Style changes for the modal */
+            #paymentModal {
+                padding: 10px;
+                max-width: 90%; /* More flexible width */
+                margin: 0 auto; /* Center the modal */
+            }
+
+            #confirmPaymentButton,
+            button[onclick="closeModal()"] {
+                width: 100%; /* Full width buttons in modal */
+                padding: 8px; /* Adjust padding */
             }
         }
     </style>
 </head>
+
 <body>
     <div class="cart-page">
         <div class="header">
@@ -184,4 +237,5 @@
         displayCartItems();
     </script>
 </body>
+
 </html>
