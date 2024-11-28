@@ -175,35 +175,66 @@
 
         /* New styles for containers */
         .container-box {
-            width: 20%;
-            margin-top: 80px;
-            margin-left: 15px;
-            padding: 80px;
-            background: linear-gradient(80deg, #9099a4, #070c9c);
-            border-radius: 5px;
-            box-shadow: 5px 5px 10px rgba(227, 216, 216, 0.7);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            text-decoration: none; /* Ensures no underline on links */
-            color: white; /* Inherit color */
-            display: flex;
+    position: relative; /* Establishes a positioning context for child elements */
+    width: 20%;
+    margin-top: 80px;
+    margin-left: 15px;
+    padding: 80px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(227, 216, 216, 0.7);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-decoration: none; /* Ensures no underline on links */
+    color: white; /* Inherit color */
+    display: flex;
     flex-direction: column; /* Stack child elements vertically */
     justify-content: center; /* Center content vertically */
     align-items: center; /* Center content horizontally */
     text-align: center; /* Align text inside <p> */
-        }
+}
+
+.background-image {
+    position: absolute; /* Positioning the image absolutely within the container */
+    top: 0; /* Aligns to the top */
+    left: 0; /* Aligns to the left */
+    width: 100%; /* Makes the image fill the width */
+    height: 100%; /* Makes the image fill the height */
+    object-fit: cover; /* Ensures the image covers the area without stretching */
+    opacity: 0.5; /* Set transparency */
+    z-index: 0; /* Places image behind text */
+    border-radius: 5px; /* Apply border-radius to the image */
+}
+
+.container-box h5, 
+.container-box p {
+    position: relative; /* Ensures the text is positioned above the image */
+    z-index: 1; /* Places text above the background image */
+    color: #fcfdfe;
+    font-size:20px;
+}
+
+.container-box:hover h5, 
+.container-box:hover p {
+    position: relative; /* Ensures the text is positioned above the image */
+    z-index: 1; /* Places text above the background image */
+    color: #b0f70a;
+    font-size:20px;
+}
+
+
+
+.container-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(249, 246, 246, 0.332);
+    background: linear-gradient(80deg, #935403, #c5bfa3);
+    color: rgb(252, 252, 252);
+}
         .contact-container, p{
             font-size:large;
             margin: 0;
         }
 
-        .container-box:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(249, 246, 246, 0.332);
-            background: linear-gradient(80deg, #935403, #c5bfa3);
-            color: white;
-        }
-
+    
         .container-wrapper {
             display: flex;
             justify-content: center;
@@ -213,7 +244,7 @@
         }
         .section{
             height: 530px;
-            background-image: url("background1.jpg");
+           background-color: rgb(11, 10, 10);
     background-size: cover; /* Ensures the image covers the entire container */
     background-repeat: no-repeat; /* Prevents the image from repeating */
     background-position: center; /* Centers the image in the container */
@@ -781,35 +812,47 @@ footer:hover:before {
             <li><a href="#c1"  class="icon-contact"><i class="fas fa-envelope"></i>
                 Contact Us</a></li>
             <li><a href="#" class="icon-login" onclick="toggleLoginForm()"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-           <li><a href="#" class="icon-login" onclick="toggleSignupForm()"><i class="fas fa-sign-in-alt"></i> Signup</a></li>
-           <li><a href="#" class="icon-login"><i class="fas fa-sign-in-alt"></i> Signii</a></li>
+
         
         </ul>
-        <button id="logout-button" class="btn-logout" onclick="logout()">
-            <i class="fas fa-sign-out-alt"></i> Logout
-        </button>
+       <!-- Logout Button -->
+       <button id="logout-button" class="btn btn-danger btn-logout" onclick="logout()">
+        <i class="fas fa-sign-out-alt"></i> Logout
+    </button>
+
     </nav>
 </header>
 <section class="section">
-<div class="container-wrapper_main">
-    <div class="container-wrapper" data-aos="flip-left" data-aos-duration="3000">
-        <a href="admin_conform.html" class="container-box">
-            <h5>Admin</h5>
-            <p>Admin Site</p>
-        </a>
-        <a href="manufacturing_conform.html" class="container-box">
-            <h5>Manufacturing</h5>
-            <p>Manufacturing Site</p>
-        </a>
-        <a href="userfeedback.html" class="container-box">
-            <h5>User Feedback</h5>
-            <p>Userfeedback Site</p>
-        </a>
-        <a href="product order.html" class="container-box">
-            <h5>Product Order</h5>
-            <p>Grab Your Favorite Product Now!</p>
-        </a>
-    </div></div></section><br  id="a1">
+    <div class="container-wrapper_main">
+        <div class="container-wrapper" data-aos="flip-left" data-aos-duration="3000">
+
+            <a href="admin_conform.html" class="container-box">
+                <img src="admin.jpg" alt="Admin" class="background-image">
+                <h5>Admin</h5>
+                <p>Admin Site</p>
+            </a>
+
+            <a href="manufacturing_conform.html" class="container-box">
+                <img src="manufacture.jpg" alt="Manufacturing" class="background-image">
+                <h5>Manufacturing</h5>
+                <p>Manufacturing Site</p>
+            </a>
+
+            <a href="userfeedback.html" class="container-box">
+                <img src="feedback.jpg" alt="User Feedback" class="background-image">
+                <h5>User Feedback</h5>
+                <p>Userfeedback Site</p>
+            </a>
+
+            <a href="product order.html" class="container-box">
+                <img src="order.jpg" alt="Product Order" class="background-image">
+                <h5>Product Order</h5>
+                <p>Grab Your Favorite Product Now!</p>
+            </a>
+
+        </div>
+    </div>
+</section><br  id="a1">
     
    
     <div class="container-wrapper">
@@ -837,56 +880,6 @@ footer:hover:before {
             <div class="box"><img src="move10.jpg" class="new-image_move"></div>
         </div>
     </div><br id="l1"><br><br><br>
-    
-
-    <div id="loginFormContainer">
-        <h5><i class="fas fa-lock"></i> Login</h5>
-        <form id="loginForm" name="submit-to-google-sheet" action="index.html" novalidate>
-            <div class="form-group">
-                <label for="email">Email address</label>
-                <input type="email" name="Email Address" class="form-control" id="email" placeholder="Enter email" required>
-                <div class="invalid-feedback"> Please provide a valid email. </div>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" name="Password" class="form-control" id="password" placeholder="Password" required>
-                <div class="invalid-feedback"> Please enter your password. </div>
-            </div>
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="showLoginPassword" onclick="togglePasswordVisibility('password')">
-                <label class="form-check-label" for="showLoginPassword">Show Password</label>
-            </div>
-            <button type="submit" class="btn btn-primary" action="index.html" >Submit</button>
-
-  </form>
-    </div>
-
-    <div id="signupFormContainer" >
-        <h5><i class="fas fa-user-plus"></i> Sign Up</h5>
-        <form id="signupForm"  name="submit-to-google-sheet">
-            <div class="form-group">
-                <label for="signupEmail">Email address</label>
-                <input type="email" name="Email Address" class="form-control" id="signupEmail" placeholder="Enter email" required>
-                <div class="invalid-feedback"> Please provide a valid email. </div>
-            </div>
-            <div class="form-group">
-                <label for="signupPassword">Password</label>
-                <input type="password" name="Password" class="form-control" id="signupPassword" placeholder="Password" required minlength="8" oninput="validatePassword()">
-                <div class="invalid-feedback" id="passwordFeedback"></div>
-            </div>
-            <div class="form-group form-check">
-                <input type="checkbox"  class="form-check-input" id="showSignupPassword" onclick="togglePasswordVisibility('signupPassword')">
-                <label class="form-check-label" for="showSignupPassword">Show Password</label>
-            </div>
-            <div class="form-group">
-                <label for="confirmPassword">Confirm Password</label>
-                <input type="password" name="ConfirmPassword" class="form-control" id="confirmPassword" placeholder="Confirm Password" required oninput="validateConfirmPassword()">
-                <div class="invalid-feedback"> Passwords do not match. </div>
-            </div>
-            <button type="submit" class="btn btn-primary" onclick="return validateSignup()">Sign Up</button>
-            </form>
-    </div >
-
     <div class="container" >
         <aside class="sidebar" data-aos="flip-left" data-aos-duration="3000">
             <h2>Automatic Production Planning and Scheduling</h2>
@@ -1165,21 +1158,25 @@ footer:hover:before {
             </div>
         </footer>
 
-<!-- Login form google sheet-->
+
+
+<!-- signup  form google sheet-->
+
 <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbx_UX2t-F4-fIiivT6WF-kObGJpWLoxOueUldlyIxe6ppn_tfJO_X-6R1X9oONJE1XJ5g/exec';
-    const form = document.forms['submit-to-google-sheet']
-  
-    form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => console.log('Success!', response))
-        .catch(error => console.error('Error!', error.message))
-    })
-  </script>
-
-<!-- Contact Us  form google sheet-->
-
+    const scriptURL2 = 'https://script.google.com/macros/s/AKfycbwQ0kkO2zT5wUVPRvgOvgvPtcbez8sgR1WeBGjrbCtqd_HD0_Kn3Di5fQyZ48fG-ogV/exec';
+    const form2 = document.forms['submit-to-google-sheet'];
+    
+    form2.addEventListener('submit', e => {
+        e.preventDefault();
+        
+        fetch(scriptURL2, { method: 'POST', body: new FormData(form2) })
+            .then(response => {
+                console.log('Success!', response);
+                // Optionally, clear form or provide user feedback
+            })
+            .catch(error => console.error('Error!', error.message));
+    });
+    </script>
 
 
 
@@ -1359,27 +1356,6 @@ footer:hover:before {
         }
     </script>
 
-    <!-- logout -->
-
-    <script>
-        const scriptURLl = 'https://script.google.com/macros/s/AKfycbwi_1TAWB0phb7ZEl1f1Od0qlQb-rdiE0IARdzQJzTWIQSJGWOfQRQq820eQQntnfpkhw/exec'; // Replace with your deployed web app URL
-
-        document.getElementById('logout-button').addEventListener('click', () => {
-            fetch(scriptURLl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                }
-            })
-            .then(response => response.text())
-            .then(result => {
-                console.log(result);
-                alert(result); // Notify the user about the result
-            })
-            .catch(error => console.error('Error!', error));
-        });
-    </script>
-
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 <script>
@@ -1387,31 +1363,20 @@ footer:hover:before {
      duration:4000
   });
 </script>
-<script>
- const scriptURL1 = 'https://script.google.com/macros/s/AKfycbwC0-bkDGPoXRTuq8_7t5JgR61dOsrfVhrSj7mvgRFCIiaXFeChrs_315NOxEe6Vdl-bg/exec';
-    const form1 = document.forms['submit-to-google-sheet'];
-
-    form1.addEventListener('submit', e => {
-        e.preventDefault();
-
-        const formData = new FormData(form1);
-        console.log(...formData.entries()); // Debugging: log the data being sent
-
-        fetch(scriptURL1, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => {
-            console.log('Success!', response);
-            alert('Submission successful!');
-        })
-        .catch(error => {
-            console.error('Error!', error.message);
-            alert('An error occurred: ' + error.message);
-        });
-    });
-</script>
 
 
+     <script>
+        // Logout function
+        function logout() {
+            // Display a confirmation dialog
+            if (confirm("You've been logged out. Do you want to return to the login page?")) {
+                // Open Main_Login.html in a new tab
+                window.open('Main_Login.html', '_blank');
+                
+                // Close the current window
+                window.close(); // Only works if the window was opened by a script.
+            }
+        }
+    </script>
 </body>
 </html>
