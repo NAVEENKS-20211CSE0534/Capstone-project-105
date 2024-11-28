@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Page</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000000;
+            overflow: hidden; /* Prevent scrolling */
+            position: relative; /* Add relative positioning */
+        }
+
+        #text {
+    position: absolute; /* Position text absolutely */
+    font-size: 3em; /* Font size */
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: 700; /* Bold text */
+    color: #ffffff; /* Initial color for high contrast */
+    animation: colorChange 3s infinite alternate; /* Color animation */
+    opacity: 1; /* Initial opacity */
+    z-index: 1; /* Ensure text is above any background */
+    letter-spacing: 0.1em; /* Spacing between letters */
+    text-transform: uppercase; /* Transform text to uppercase */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Adding shadow for depth */
+    line-height: 1.2; /* Line height for better readability */
+    padding: 10px; /* Padding around text */
+    margin: 5px; /* Margin around text */
+    text-align: center; /* Center align the text if needed */
+}
+
+/* To animate colors */
+@keyframes colorChange {
+    0% {
+        color: #fffcfc; /* Start color */
+    }
+    50% {
+        color: #00ff00; /* Midway color */
+    }
+    100% {
+        color: #0000ff; /* End color */
+    }
+}
+
+/* Example body style for the black background */
+body {
+    background-color: #000000; /* Black background */
+    margin: 0; /* Remove default margin */
+    height: 100vh; /* Make sure the body takes full height */
+}
+
+        img {
+            max-width: 100%; /* Responsive */
+            max-height: 100%; /* Responsive */
+            position: absolute;
+            transition: transform 3s ease-out; /* Animation transition */
+            transform-origin: center; /* Zoom from the center */
+            transform: scale(4); /* Start at 10% size */
+            z-index: 0; /* Ensure logo is behind the text */
+            opacity: 0; /* Initially hide the logo */
+        }
+
+        /* When image is fully zoomed in */
+        .zoom-out {
+            transform: scale(0.2); /* Scale to 100% */
+            opacity: 1; /* Make logo visible */
+        }
+
+        /* For the fade-out effect */
+        .fade-out {
+            opacity: 0; /* Hide the text */
+            transition: opacity 1s ease; /* Fade-out transition */
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="text">Automatic Production Planning and Scheduling of Size</div>
+    <img id="logo" src="logo.png" alt="Logo">
+
+    <script>
+        // Function to start the zoom-out effect and redirect
+        function startZoomIn() {
+            const text = document.getElementById('text');
+            const logo = document.getElementById('logo');
+
+            // Fade the text out after a short delay
+            setTimeout(() => {
+                text.classList.add('fade-out'); // Apply fade-out class
+            }, 6000); // Text visible duration of 6 seconds
+
+            // Wait for the text to fade out, then show and zoom in the logo
+            setTimeout(() => {
+                logo.style.opacity = 1; // Make the logo visible
+                logo.classList.add('zoom-out'); // Apply zoom-out class
+
+                // Immediately hide the text
+                text.style.display = "none"; // Hide text immediately when logo is zooming
+
+                // Redirect after logo zoom-out completes
+                setTimeout(() => {
+                    window.location.href = 'Main_Login.html'; // Redirect to the main login page
+                }, 2500); // Match the duration of the CSS transition for the logo
+            }, 6000); // Delay for the fade-out to complete
+        }
+
+        // Start the animation as soon as the window loads
+        window.onload = startZoomIn;
+    </script>
+</body>
+
+</html>
