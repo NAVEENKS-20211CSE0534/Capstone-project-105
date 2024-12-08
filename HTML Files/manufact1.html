@@ -1,0 +1,167 @@
+
+        <html>
+        <head>
+            <title>Top Demanded Products</title>
+            <style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #fcfcfb, #f9feff);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+        animation: fadeIn 2s;
+        margin: 10px 0; /* Reduced margin to eliminate extra space */
+    }
+
+    h2 {
+        text-align: center;
+        color: #666;
+        font-style: italic;
+        animation: slideIn 1.5s;
+        margin: 5px 0; /* Reduced margin for compact layout */
+    }
+
+    table {
+        margin: 10px 0; /* Reduced gap around the table */
+        width: 70%;
+        border-collapse: collapse;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        animation: popIn 1.5s;
+    }
+
+    th,
+    td {
+        padding: 12px;
+        border: 1px solid #ccc;
+        text-align: center;
+        transition: background-color 0.5s ease;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: rgba(76, 175, 80, 0.2);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes popIn {
+        from {
+            transform: scale(0.8);
+            opacity: 0;
+        }
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 768px) {
+        table {
+            width: 90%;
+        }
+
+        th,
+        td {
+            padding: 10px;
+        }
+
+        h1,
+        h2 {
+            font-size: 1.5em;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        table {
+            width: 100%;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            font-size: 0.9em;
+        }
+
+        h1 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        h2 {
+            font-size: 1em;
+            margin: 5px 0;
+        }
+    }
+</style>
+        </head>
+        <body>
+         <h1>Manufacturing Site</h1>
+    <h2>"Efficient Product Scheduling for Maximum Productivity"</h2>
+            <h1>Top Demanded Products</h1>
+            <table>
+                <tr>
+                    <th>Product Category</th>
+                    <th>Demand</th>
+                </tr>
+        
+                <tr>
+                    <td>Snacks</td>
+                    <td>23</td>
+                </tr>
+            
+                <tr>
+                    <td>Spices</td>
+                    <td>14</td>
+                </tr>
+            
+                <tr>
+                    <td>Health Supplements</td>
+                    <td>8</td>
+                </tr>
+            
+                <tr>
+                    <td>Beverages</td>
+                    <td>1</td>
+                </tr>
+            
+            </table>
+        </body>
+        </html>
+        
