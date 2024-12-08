@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Company Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #6a00b3, #b92b5b);
+            color: #fff;
+            padding: 8px 0;
+            text-align: center;
+            animation: slideIn 1s ease-in-out;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        section {
+            margin-top: 80px; /* Space for the fixed header */
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .product {
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            transition: transform 0.3s;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .product:hover {
+            transform: scale(1.02);
+            background-color: #e8f5e9;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .product h3 {
+            color: #6a00b3;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        .service-intro {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>App Company Product Showcase</h1>
+</header>
+
+<section id="products">
+    <h2>Our Services</h2>
+    <p class="service-intro">At App Company, we pride ourselves on providing high-quality spices and 
+      condiments that enhance culinary experiences. Our meticulously crafted products are designed to bring authentic 
+      flavors to your kitchen. From masalas to sauces, we offer a diverse range of items for every culinary need. 
+      Discover the essence of Indian cooking with our premium offerings.</p>
+
+    <div class="product">
+        <h3>Garam Masala</h3>
+        <p>A rich blend of spices that adds warmth and depth to dishes. It consists of ground cumin, coriander, 
+           black pepper, and cardamom, which create a well-rounded flavor profile. Used extensively in Indian cuisine, 
+           Garam masala is ideal for curries, stews, and rice dishes. It can be added at different stages of cooking 
+           for varying flavor impacts. Use it sparingly to allow the unique spice characteristics to shine through.</p>
+    </div>
+    <div class="product">
+        <h3>Sabji Masala</h3>
+        <p>Perfectly crafted spices for seasoning vegetables to perfection. This masala enhances the flavor of 
+           any vegetable dish, making it irresistible. It contains turmeric, chili powder, and a medley of 
+           aromatic spices that are particularly suited for Indian vegetable curries. Versatile enough to be 
+           used in stir-fries and sautéed veggies, it’s an essential staple for health-conscious cooking. 
+           Ideal for both routine family meals and impressive dinner parties.</p>
+    </div>
+    <div class="product">
+        <h3>Royal Garam Masala</h3>
+        <p>An exotic mix for those who want to elevate their cooking. This royal version includes premium spices 
+           like saffron and nutmeg, perfect for special occasions. Traditionally used in rich Indian dishes, 
+           it’s essential for biryanis and special curries. A few pinches can enhance the depth of your 
+           culinary creations, giving them an aromatic twist. This blend is sure to impress guests and 
+           elevate everyday meals to royal status.</p>
+    </div>
+    <div class="product">
+        <h3>Shahi Garam Masala</h3>
+        <p>Your go-to spice for rich, royal dishes that impress. Inspired by Mughlai flavors, it includes 
+           unique spices that bring a regal touch to any meal. Often used in rich gravies and biryanis, 
+           this masala is designed to create unforgettable dishes. A little goes a long way, making it 
+           both economical and effective in enhancing flavors. Use it for special occasions or to add 
+           luxury to weekday dinners.</p>
+    </div>
+    <div class="product">
+        <h3>Chhole Masala</h3>
+        <p>The authentic flavor for traditional chickpea curry. This masala brings together a perfect mix 
+           of spices that complement the high-protein chickpeas beautifully. It contains a balance of heat 
+           and earthy flavors, ideally suited for various styles of chhole. Perfect for pairing with 
+           rice, naan, or bhature, it’s versatile and satisfying. Rich in protein and flavor, this dish is 
+           a favorite in North Indian households.</p>
+    </div>
+    <div class="product">
+        <h3>Pav Bhaji Masala</h3>
+        <p>Specially prepared for the famous Mumbai street food dish. This masala includes a delightful 
+           mix of spices to create the tastiest pav bhaji, ensuring every bite is packed with flavor. 
+           It’s great for parties, casual gatherings, or family dinners. Serve with buttery pav for a 
+           traditional experience that highlights rich, vibrant flavors. This dish is not just food; it's 
+           a culinary experience of India’s street food culture.</p>
+    </div>
+    <div class="product">
+        <h3>Shahi Biryani Masala</h3>
+        <p>Flavors that bring the royal biryani to your kitchen. This delicate blend includes elevated spices 
+           that infuse aromatic rice dishes with warm flavors. Ideal for both chicken and vegetarian biryanis, 
+           this masala elevates each grain of rice. Bring the regal dining experience home with the 
+           rich and complex bouquet of spices found in this mix. Suitable for festive occasions, it truly 
+           symbolizes Indian hospitality.</p>
+    </div>
+    <div class="product">
+        <h3>Ginger Garlic Paste</h3>
+        <p>A staple in Indian cooking, perfect for flavoring meats and vegetables. This paste delivers a warm 
+           aroma to countless recipes and enhances the taste of curry bases. It is easy to use and can 
+           be added during cooking or used as a marinade. Storing it in the refrigerator prolongs its 
+           freshness, making it a must-have for expedient cooking. It also carries numerous health benefits 
+           and promotes digestion, making it an excellent addition to any dish.</p>
+    </div>
+    <div class="product">
+        <h3>Kesar Milk Masala and Saffron</h3>
+        <p>Adds a luxurious flavor to your milk and desserts. Often used in festive recipes, this combination 
+           enhances traditional sweets and drinks. Perfect for flavoring sweets like kheer or for preparing 
+           refreshing milk drinks. The hint of saffron not only adds richness but also a beautiful color. 
+           Elevate your desserts to the next level with this astonishing blend of flavors that speaks of 
+           indulgence and luxury.</p>
+    </div>
+    <div class="product">
+        <h3>Tasteeto Tomato Ketchup</h3>
+        <p>A delicious blend of tomatoes and spices ideal for dipping and enhancing a variety of dishes from 
+           fries to sandwiches. This ketchup balances tangy and sweet, making it a family favorite. It’s 
+           perfect for parties, barbecues, or casual meals at home. Crafted with fresh ingredients, it adds 
+           a burst of taste to simple snacks. Nutrient-rich and wholesome, it enhances dietary meals for 
+           all ages.</p>
+    </div>
+    <div class="product">
+        <h3>Culinary Sauces</h3>
+        <p>Enhance your dishes with our variety of rich sauces, ranging from sweet to tangy. These sauces 
+           are designed to complement a wide range of cuisines, from Asian stir-fries to European pasta. 
+           They add convenience without compromising on flavor. Each sauce embodies a unique taste profile, 
+           elevating your culinary creations effortlessly. Perfect for drizzling over salads or using as 
+           marinades, they make cooking easier and more enjoyable.</p>
+    </div>
+    <div class="product">
+        <h3>Vinegar</h3>
+        <p>Perfect for salads and cooking, evoking delightful flavors. Our vinegar comes in various types, 
+           including apple cider and balsamic, to elevate your culinary creations. It enhances the taste of 
+           salads and acts as a preservative for pickling. Excellent for homemade dressings, it’s a versatile 
+           ingredient for any kitchen. Additionally, vinegar has health benefits, such as aiding digestion and 
+           providing antioxidants.</p>
+    </div>
+    <div class="product">
+        <h3>Pickles</h3>
+        <p>A tangy accompaniment that elevates every meal. Our pickles come in various flavors, adding zest 
+           to any dish, from rice to chapatis. Carefully crafted with spices, they provide a perfect balance 
+           between sweet, salty, and spicy flavors. Great as a side dish or on their own, these pickles are 
+           a staple in many Indian households. Enjoy the vibrant flavors of our pickles anytime, bringing 
+           a special touch to your everyday meals.</p>
+    </div>
+    <div class="product">
+        <h3>Jams</h3>
+        <p>Sweet spreads for breakfast or as toppings for your favorite desserts. Made with fresh fruits, our 
+           jams are a delightful addition to breads and pastries. They provide a burst of natural sweetness 
+           that enhances your morning routine. Versatile in use, they complement both sweet and savory dishes. 
+           Deliciously crafted, each jar encapsulates vibrant flavors that take you back to grandma’s kitchen 
+           with each spoonful.</p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 App Company. All rights reserved.</p>
+</footer>
+
+<script>
+    // Optional JavaScript functionality for enhanced interactivity
+    console.log("App Company Product Showcase loaded!");
+</script>
+
+</body>
+
+</html>
